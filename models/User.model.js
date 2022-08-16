@@ -16,10 +16,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  // // this second object adds extra properties: `createdAt` and `updatedAt`
-  // timestamps: true,
 });
 
-const User = model("User", userSchema);
+const User = model("user", userSchema);
 
 module.exports = User;

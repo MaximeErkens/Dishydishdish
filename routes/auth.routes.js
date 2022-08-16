@@ -19,17 +19,49 @@ router.get("/register", isLoggedOut, (req, res) => {
 });
 
 router.post("/register", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password, confirmPassword } = req.body;
 
   if (!username) {
     return res.status(400).render("auth/register", {
       errorMessage: "Please provide your username.",
+      ...req.body,
+    });
+  }
+
+  if (!email) {
+    return res.status(400).render("auth/register", {
+      emailError: "Please add an email",
+      ...req.body,
+    });
+  }
+
+  if (!password) {
+    return res.status(400).render("auth/register", {
+      passwordError: "Please add a password",
+      ...req.body,
     });
   }
 
   if (password.length < 8) {
     return res.status(400).render("auth/register", {
       errorMessage: "Your password needs to be at least 8 characters long.",
+      ...req.body,
+    });
+  }
+
+  if (!email.includes("@")) {
+    return res.status(400).render("auth/register", {
+      emailError:
+        "Please add, at the very least an @ symbol. We dont ask for THAT much",
+      ...req.body,
+    });
+  }
+
+  if (password !== confirmPassword) {
+    return res.status(400).render("auth/register", {
+      passwordError:
+        "Could you at least pretend like you give a damn?. Could these AT LEAST be the same? For once?... Could you not? We've been through this... It is written... Are you that dumb? You must be... Otherwise you would have done what we ask you to do... So could you, for once in your miserable life, do what youre told? Thank you",
+      ...req.body,
     });
   }
 
@@ -46,12 +78,13 @@ router.post("/register", isLoggedOut, (req, res) => {
   */
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username }).then((found) => {
+  User.findOne({ $or: [{ username }, { email }] }).then((possibleUser) => {
     // If the user is found, send the message username is taken
-    if (found) {
-      return res
-        .status(400)
-        .render("auth.register", { errorMessage: "Username already taken." });
+    if (possibleUser) {
+      return res.status(400).render("auth/register", {
+        errorMessage: "Username already taken.",
+        ...req.body,
+      });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -63,6 +96,7 @@ router.post("/register", isLoggedOut, (req, res) => {
         return User.create({
           username,
           password: hashedPassword,
+          email,
         });
       })
       .then((user) => {

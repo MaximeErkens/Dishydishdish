@@ -1,14 +1,46 @@
 <h1>Register here please</h1>
 
-<form action="/auth/register" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
-
-   <button type="submit">Submit</button>
+<form method='post' action='/auth/register'>
+  <label>Username
+    <input
+      type='text'
+      name='username'
+      placeholder='Your virtual name'
+      value='{{username}}'
+    />
+    {{#if usernameError}}
+      <div>{{usernameError}}</div>
+    {{/if}}
+  </label>
+  <br />
+  <label>Email
+    <input
+      type='text'
+      name='email'
+      placeholder='Your email'
+      value='{{email}}'
+    />
+    {{#if emailError}}
+      <div>{{emailError}}</div>
+    {{/if}}
+  </label>
+  <br />
+  <label>Password
+    <input type='password' name='password' placeholder='Your password' />
+    {{#if passwordError}}
+      <div>{{passwordError}}</div>
+    {{/if}}
+  </label>
+  <br />
+  <label>Confirm Password
+    <input
+      type='password'
+      name='confirmPassword'
+      placeholder='Your password, but again'
+    />
+  </label>
+  <br />
+  <button type='submit'>Create your account</button>
 </form>
 
 {{#if errorMessage}}
