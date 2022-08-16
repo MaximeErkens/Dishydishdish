@@ -1,18 +1,12 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const userSchema = new Schema({
-  username: {
+const dishSchema = new Schema({
+  dishName: {
     type: String,
-    unique: true,
     required: true,
   },
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  password: {
+  img: {
     type: String,
     required: true,
   },
@@ -20,6 +14,6 @@ const userSchema = new Schema({
   // timestamps: true,
 });
 
-const User = model("User", userSchema);
+const Dish = model("Dish", dishSchema);
 
-module.exports = User;
+module.exports = Dish;
