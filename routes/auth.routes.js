@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const authRouter = require("express").Router();
 
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
@@ -14,11 +14,11 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/register", isLoggedOut, (req, res) => {
+authRouter.get("/register", isLoggedOut, (req, res) => {
   res.render("auth/register");
 });
 
-router.post("/register", isLoggedOut, (req, res) => {
+authRouter.post("/register", isLoggedOut, (req, res) => {
   const { username, email, password, confirmPassword } = req.body;
 
   if (!username) {
@@ -123,11 +123,11 @@ router.post("/register", isLoggedOut, (req, res) => {
   });
 });
 
-router.get("/login", isLoggedOut, (req, res) => {
+authRouter.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
 
-router.post("/login", isLoggedOut, (req, res, next) => {
+authRouter.post("/login", isLoggedOut, (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username) {
@@ -175,7 +175,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
-router.get("/logout", isLoggedIn, (req, res) => {
+authRouter.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res
@@ -186,4 +186,4 @@ router.get("/logout", isLoggedIn, (req, res) => {
   });
 });
 
-module.exports = router;
+module.exports = authRouter;
