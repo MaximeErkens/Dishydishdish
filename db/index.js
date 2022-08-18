@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 //const MONGO_URL = require("../utils/consts");
 
-const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost/Dishydishdish";
+const MONGO_URL = require("../utils/consts");
 
 mongoose
   .connect(MONGO_URL)
