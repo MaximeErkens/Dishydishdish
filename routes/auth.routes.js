@@ -99,10 +99,11 @@ authRouter.post("/register", isLoggedOut, (req, res) => {
           email,
         });
       })
-      .then((user) => {
+      .then((possibleUser) => {
         // Bind the user to the session object
-        req.session.user = user;
-        res.redirect("/");
+        req.session.user = possibleUser;
+        // res.redirect("/");
+        res.redirect(`/user/${possibleUser._id}`);
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -146,24 +147,25 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
 
   // Search the database for a user with the username submitted in the form
   User.findOne({ username })
-    .then((user) => {
+    .then((possibleUser) => {
       // If the user isn't found, send the message that user provided wrong credentials
-      if (!user) {
+      if (!possibleUser) {
         return res.status(400).render("auth/login", {
           errorMessage: "Wrong credentials.",
         });
       }
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt.compare(password, user.password).then((isSamePassword) => {
+      bcrypt.compare(password, possibleUser.password).then((isSamePassword) => {
         if (!isSamePassword) {
           return res.status(400).render("auth/login", {
             errorMessage: "Wrong credentials.",
           });
         }
-        req.session.user = user;
+        req.session.user = possibleUser;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        // return res.redirect("/");
+        res.redirect(`/user/${possibleUser._id}`);
       });
     })
 
