@@ -3,9 +3,23 @@
 <ul>
   {{#each restaurants}}
     <li>
+      <label>
+        Name of restaurant:
+        <p>{{restaurantName}}</p>
+      </label>
+      <label>Desc: <p>{{description}}</p></label>
+      <label>City:<p>{{city}}</p></label>
+      <label>Website: <p>{{website}}</p></label>
+    </li>
+  {{/each}}
+</ul>
+
+{{!-- <ul>
+  {{#each restaurants}}
+    <li>
       <a href="/restaurant/{{_id}}">
         {{restaurantName}}
       </a>
     </li>
   {{/each}}
-</ul>
+</ul> --}}
