@@ -12,10 +12,10 @@ restaurantRouter.get("/all", (req, res) => {
   });
 });
 
-restaurantRouter.post("/all/:id/delete", isLoggedIn, (req, res) => {
+restaurantRouter.post("/:_id/delete", isLoggedIn, (req, res) => {
   RestaurantModel.findByIdAndDelete(req.params._id)
     .then(() => {
-      res.redirect("restaurant/all-restaurants");
+      res.redirect("/restaurant/all");
     })
     .catch((err) => {
       console.log(
