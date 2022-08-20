@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
@@ -16,6 +16,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  restaurantsList: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "restaurant",
+    },
+  ],
 });
 
 const User = model("user", userSchema);
