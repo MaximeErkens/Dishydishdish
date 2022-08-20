@@ -1,0 +1,11 @@
+<h1>Welcome on your favorite restaurant page</h1>
+
+<ul>
+  {{#each restaurants}}
+    <li>
+      <a href="/restaurant/{{_id}}">
+        {{restaurantName}}
+      </a>
+    </li>
+  {{/each}}
+</ul>

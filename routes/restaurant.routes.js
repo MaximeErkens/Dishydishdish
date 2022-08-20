@@ -6,11 +6,11 @@ const UserModel = require("../models/User.model");
 
 const restaurantRouter = Router();
 
-// restaurantRouter.get("/", (req, res) => {
-//   RestaurantModel.find({}).then((restaurants) => {
-//     res.render("restaurant/all", { restaurants });
-//   });
-// });
+restaurantRouter.get("/all", (req, res) => {
+  RestaurantModel.find({}).then((restaurants) => {
+    res.render("restaurant/all-restaurants", { restaurants });
+  });
+});
 
 restaurantRouter.get("/add", isLoggedIn, (req, res) => {
   res.render("restaurant/add-restaurant");
