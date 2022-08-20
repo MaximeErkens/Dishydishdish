@@ -11,15 +11,8 @@
       <label>City:<p>{{city}}</p></label>
       <label>Website: <p>{{website}}</p></label>
     </li>
+    <form action="/restaurant/{{_id}}/delete" method="post">
+      <button type="submit">Delete restaurant</button>
+    </form>
   {{/each}}
 </ul>
-
-{{!-- <ul>
-  {{#each restaurants}}
-    <li>
-      <a href="/restaurant/{{_id}}">
-        {{restaurantName}}
-      </a>
-    </li>
-  {{/each}}
-</ul> --}}

@@ -12,6 +12,19 @@ restaurantRouter.get("/all", (req, res) => {
   });
 });
 
+restaurantRouter.post("/all/:id/delete", isLoggedIn, (req, res) => {
+  RestaurantModel.findByIdAndDelete(req.params._id)
+    .then(() => {
+      res.redirect("restaurant/all-restaurants");
+    })
+    .catch((err) => {
+      console.log(
+        `Oopsie there went something wrong with deleting the restaurant ${err}`
+      );
+      res.render("restaurant/all-restaurants");
+    });
+});
+
 restaurantRouter.get("/add", isLoggedIn, (req, res) => {
   res.render("restaurant/add-restaurant");
 });
