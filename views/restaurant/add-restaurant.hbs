@@ -1,0 +1,45 @@
+<h3>Please add your favorite restaurant</h3>
+
+<form method="post" action="/restaurant/add">
+  <label for="restaurantName">
+    Restaurant Name
+    <input type="text" id="restaurantName" name="restaurantName" placeholder="Restaurant Name" />
+  </label>
+  <br />
+  <label for="description">
+    Description
+    <input
+      type="text"
+      id="description"
+      name="description"
+      placeholder="Describe Restaurant"
+    />
+  </label>
+  <br />
+  <label for="city">
+    City
+    <input
+      type="text"
+      id="city"
+      name="city"
+      placeholder="City"
+    />
+  </label>
+  <br />
+  <label for="website">
+    Website
+    <input
+      type="text"
+      id="website"
+      name="website"
+      placeholder="Website"
+    />
+  </label>
+  <br />
+  <button type="submit">Create your restaurant</button>
+</form>
+
+{{#if createdRestaurant}}
+  <h4>Thank you for creating
+    <a href="/restaurant/{{createdRestaurant._id}}">{{createdRestaurant.title}}</a></h4>
+{{/if}}
