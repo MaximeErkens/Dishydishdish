@@ -12,19 +12,6 @@ restaurantRouter.get("/all", (req, res) => {
   });
 });
 
-restaurantRouter.post("/:_id/delete", isLoggedIn, (req, res) => {
-  RestaurantModel.findByIdAndDelete(req.params._id)
-    .then(() => {
-      res.redirect("/restaurant/all");
-    })
-    .catch((err) => {
-      console.log(
-        `Oopsie there went something wrong with deleting the restaurant ${err}`
-      );
-      res.render("restaurant/all-restaurants");
-    });
-});
-
 restaurantRouter.get("/add", isLoggedIn, (req, res) => {
   res.render("restaurant/add-restaurant");
 });
@@ -56,6 +43,25 @@ restaurantRouter.post("/add", isLoggedIn, (req, res) => {
         res.redirect("/");
       });
   });
+});
+
+restaurantRouter.get("/:_id/update", isLoggedIn, (req, res) => {
+  RestaurantModel.findById(req.params._id).then((restaurant) => {
+    res.render("restaurant/update-restaurant", { restaurant });
+  });
+});
+
+restaurantRouter.post("/:_id/delete", isLoggedIn, (req, res) => {
+  RestaurantModel.findByIdAndDelete(req.params._id)
+    .then(() => {
+      res.redirect("/restaurant/all");
+    })
+    .catch((err) => {
+      console.log(
+        `Oopsie there went something wrong with deleting the restaurant ${err}`
+      );
+      res.render("restaurant/all-restaurants");
+    });
 });
 
 module.exports = restaurantRouter;

@@ -1,0 +1,51 @@
+<h2>Update restaurant</h2>
+
+<form method="post" action="/restaurant/{{restaurant._id}}/update">
+ <label for="restaurantName">
+    Restaurant Name
+    <input 
+    type="text" 
+    id="restaurantName" 
+    name="restaurantName" 
+    placeholder="Restaurant Name" 
+    value="{{restaurant.restaurantName}}"
+    />
+  </label>
+  <br />
+  <label for="description">
+    Description
+    <input
+      type="text"
+      id="description"
+      name="description"
+      placeholder="Describe Restaurant"
+      value="{{restaurant.description}}"
+    />
+  </label>
+  <br />
+  <label for="city">
+    City
+    <input
+      type="text"
+      id="city"
+      name="city"
+      placeholder="City"
+      value="{{restaurant.city}}"
+    />
+  </label>
+  <br />
+  <label for="website">
+    Website
+    <input
+      type="text"
+      id="website"
+      name="website"
+      placeholder="Website"
+      value="{{restaurant.website}}"
+    />
+  </label>
+  <br />
+
+  <button type="submit">Update restaurant details</button>
+
+</form>

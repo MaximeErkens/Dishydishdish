@@ -12,7 +12,8 @@
       <label>Website: <p>{{website}}</p></label>
     </li>
     <form action="/restaurant/{{_id}}/delete" method="post">
-      <button type="submit">Delete restaurant</button>
+        <button type="submit">Delete restaurant</button>
     </form>
+      <a href="/restaurant/{{_id}}/update">Edit restaurant</a>
   {{/each}}
 </ul>
