@@ -51,6 +51,29 @@ restaurantRouter.get("/:_id/update", isLoggedIn, (req, res) => {
   });
 });
 
+restaurantRouter.post("/:_id/update", isLoggedIn, (req, res) => {
+  const {
+    restaurantName = "",
+    description = "",
+    city = "",
+    website = "",
+  } = req.body;
+
+  RestaurantModel.findByIdAndUpdate(req.params._id, {
+    restaurantName,
+    description,
+    city,
+    website,
+  })
+    .then(() => {
+      return res.redirect("/restaurant/all");
+    })
+    .catch((err) => {
+      console.log("Oops, something went wrong with updating the restaurant");
+      res.render("restaurant/update-restaurant");
+    });
+});
+
 restaurantRouter.post("/:_id/delete", isLoggedIn, (req, res) => {
   RestaurantModel.findByIdAndDelete(req.params._id)
     .then(() => {
