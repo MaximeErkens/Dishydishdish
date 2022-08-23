@@ -1,14 +1,21 @@
 const { Router } = require("express");
 const { isValidObjectId } = require("mongoose");
 const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedOut = require("../middleware/isLoggedOut");
 const RestaurantModel = require("../models/Restaurant.model");
 const UserModel = require("../models/User.model");
 
 const restaurantRouter = Router();
 
-restaurantRouter.get("/all", (req, res) => {
+restaurantRouter.get("/all", isLoggedIn, (req, res) => {
   RestaurantModel.find({}).then((restaurants) => {
     res.render("restaurant/all-restaurants", { restaurants });
+  });
+});
+
+restaurantRouter.get("/public", isLoggedIn || isLoggedOut, (req, res) => {
+  RestaurantModel.find({}).then((restaurants) => {
+    res.render("restaurant/all-public-restaurants", { restaurants });
   });
 });
 
