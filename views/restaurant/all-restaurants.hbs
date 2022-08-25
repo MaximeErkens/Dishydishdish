@@ -1,4 +1,12 @@
-<h1>Welcome on {{user.userName}} favorite restaurant page</h1>
+{{#if isOwner}}
+<h1>
+Welcome ma human!
+</h1>
+{{else if hasOwner}}
+<h1>Welcome on {{username}} favorite restaurant page</h1>
+{{else}}
+<h1>Hello to general list</h1>
+{{/if}}
 
 <ul>
   {{#each restaurants}}
