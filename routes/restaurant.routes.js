@@ -8,16 +8,55 @@ const UserModel = require("../models/User.model");
 const restaurantRouter = Router();
 
 restaurantRouter.get("/all", isLoggedIn, (req, res) => {
-  RestaurantModel.find({}).then((restaurants) => {
-    res.render("restaurant/all-restaurants", { restaurants });
-  });
+  return UserModel.findById(req.session.user._id)
+    .populate("restaurantsList")
+    .then((user) => {
+      const { restaurantsList } = user;
+      console.log(user);
+      // const restaurants = user.restaurantsList.map((el) => {
+      //   return {
+      //     ...el.toJSON(),
+      //     isOwner: true,
+      //   };
+      // });
+      res.render("restaurant/all-restaurants", {
+        restaurants: restaurantsList,
+        isOwner: true,
+      });
+    });
+  // RestaurantModel.find({}).then((restaurants) => {
+  //   res.render("restaurant/all-restaurants", { restaurants });
+  // });
 });
 
-restaurantRouter.get("/public", isLoggedIn || isLoggedOut, (req, res) => {
-  RestaurantModel.find({}).then((restaurants) => {
-    res.render("restaurant/all-public-restaurants", { restaurants });
-  });
+restaurantRouter.get("/public", async (req, res) => {
+  if (req.query?.username) {
+    const user = await UserModel.findOne({
+      username: req.query.username,
+    }).populate("restaurantsList");
+
+    if (!user) {
+      return renderAllRestaurants(res);
+    }
+
+    console.log(user);
+
+    return res.render("restaurant/all-restaurants", {
+      restaurants: user.restaurantsList,
+      username: user.username,
+    });
+  }
+  return renderAllRestaurants(res);
+  // RestaurantModel.find({}).then((restaurants) => {
+  //   res.render("restaurant/all-public-restaurants", { restaurants });
+  // });
 });
+
+function renderAllRestaurants(res) {
+  RestaurantModel.find({}).then((restaurants) => {
+    res.render("restaurant/-restaurants", { restaurants });
+  });
+}
 
 restaurantRouter.get("/add", isLoggedIn, (req, res) => {
   res.render("restaurant/add-restaurant");
