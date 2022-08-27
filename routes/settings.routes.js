@@ -63,7 +63,8 @@ settingsRouter.post("/update-user", async (req, res) => {
       username,
       email,
     });
-    return res.redirect("/");
+
+    return res.render("settings/succes-profile-change");
   }
 
   UserModel.find({
@@ -100,7 +101,6 @@ settingsRouter.post("/update-password", async (req, res) => {
     newPasswordAgain.length < 8 ||
     newPassword !== newPasswordAgain
   ) {
-    //
     return res.status(400).render("settings/update-password", {
       user,
       errorMessage: "Fill every input correctly",
@@ -127,7 +127,7 @@ settingsRouter.post("/update-password", async (req, res) => {
 
   await UserModel.findByIdAndUpdate(user._id, { password: hashedPassword });
 
-  res.redirect("/");
+  return res.render("settings/succes-profile-change");
 });
 
 module.exports = settingsRouter;
