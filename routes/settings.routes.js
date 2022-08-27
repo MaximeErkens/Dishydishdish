@@ -2,6 +2,8 @@ const { Router } = require("express");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const UserModel = require("../models/User.model");
 const bcrypt = require("bcrypt");
+const uploadMiddleware = require("../middleware/cloudinary");
+
 const {
   Types: { ObjectId },
 } = require("mongoose");
@@ -130,4 +132,21 @@ settingsRouter.post("/update-password", async (req, res) => {
   return res.render("settings/succes-profile-change");
 });
 
+settingsRouter.get("/profile-pic", (req, res) => {
+  res.render("settings/profile-pic");
+});
+
+settingsRouter.post(
+  "/profile-pic",
+  isLoggedIn,
+  uploadMiddleware.single("image"),
+  async (req, res) => {
+    console.log(req.file);
+    await UserModel.findByIdAndUpdate(req.session.user._id, {
+      profilePic: req.file.path,
+    });
+
+    res.render("settings/profile-pic");
+  }
+);
 module.exports = settingsRouter;
