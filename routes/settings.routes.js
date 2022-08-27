@@ -34,11 +34,6 @@ settingsRouter.get("/update-user", async (req, res) => {
   res.render("settings/update-user", { user: req.user });
 });
 
-// const updateUserSchema = z.object({
-//   username: z.string().min(4),
-//   email: z.string().email(),
-// });
-
 settingsRouter.post("/update-user", async (req, res) => {
   const { username = "", email = "" } = req.body;
   console.log(username, email);
