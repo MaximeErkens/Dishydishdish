@@ -22,6 +22,8 @@ const userSchema = new Schema({
       ref: "Restaurant",
     },
   ],
+
+  profilePic: String,
 });
 
 const User = model("user", userSchema);
