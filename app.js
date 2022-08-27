@@ -33,6 +33,9 @@ app.use("/auth", authRoutes);
 const userRouter = require("./routes/user.routes");
 app.use("/user", userRouter);
 
+const settingsRouter = require("./routes/settings.routes");
+app.use("/settings", settingsRouter);
+
 const restaurantRouter = require("./routes/restaurant.routes");
 app.use("/restaurant", restaurantRouter);
 
