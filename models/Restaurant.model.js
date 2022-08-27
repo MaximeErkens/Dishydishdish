@@ -15,7 +15,6 @@ const restaurantSchema = new Schema({
   },
   website: {
     type: String,
-    unique: true,
     required: true,
   },
 });
