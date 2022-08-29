@@ -38,6 +38,7 @@ restaurantRouter.get("/public", async (req, res) => {
     return res.render("restaurant/all-restaurants", {
       restaurants: user.restaurantsList,
       username: req.query.username,
+      profilePic: user.profilePic,
       hasOwner: true,
     });
   }
