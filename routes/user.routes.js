@@ -30,4 +30,8 @@ userRouter.get("/:userId", (req, res) => {
     });
 });
 
+userRouter.get("/", (req, res) => {
+  res.render("user/personal");
+});
+
 module.exports = userRouter;
