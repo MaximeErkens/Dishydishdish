@@ -1,16 +1,22 @@
-<h1>Hello from the personal page of {{user.username}}</h1>
+<div class="personal-page-container">
 
-<div>
+<div class="personal-page-element">
+<h1>Hello from the personal page of {{user.username}}</h1>
+</div>
+
+<div class="personal-page-element">
   Your email is
   {{user.email}}. Nice to see you today
 </div>
 
-<div>
+<div class="personal-page-element">
   Your Profile pic:
-  <img src={{user.profilePic}} alt="profile-pic" />
+  <img src={{user.profilePic}} alt="profile-pic" height="90"/>
 </div>
 
-<div>
+<div class="personal-page-element">
   In case you do not know, your id is
   {{userId}}
+</div>
+
 </div>

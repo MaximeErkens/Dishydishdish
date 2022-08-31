@@ -1,12 +1,12 @@
-<h3>Please add your favorite restaurant</h3>
+<h1>Please add your favorite restaurant</h1>
 
 <form method="post" action="/restaurant/add">
-  <label for="restaurantName">
+  <label class="add-restaurant-label" for="restaurantName">
     Restaurant Name
     <input type="text" id="restaurantName" name="restaurantName" placeholder="Restaurant Name" />
   </label>
   <br />
-  <label for="description">
+  <label class="add-restaurant-label" for="description">
     Description
     <input
       type="text"
@@ -16,7 +16,7 @@
     />
   </label>
   <br />
-  <label for="city">
+  <label class="add-restaurant-label" for="city">
     City
     <input
       type="text"
@@ -26,7 +26,7 @@
     />
   </label>
   <br />
-  <label for="website">
+  <label class="add-restaurant-label" for="website">
     Website
     <input
       type="text"
@@ -36,7 +36,7 @@
     />
   </label>
   <br />
-  <button type="submit">Create your restaurant</button>
+  <button class="create-restaurant-btn" type="submit">Create your restaurant</button>
 </form>
 
 {{#if createdRestaurant}}
