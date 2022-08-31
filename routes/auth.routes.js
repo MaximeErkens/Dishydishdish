@@ -179,6 +179,7 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
 
 authRouter.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
+    res.clearCookie();
     if (err) {
       return res
         .status(500)
