@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const UserModel = require("../models/User.model");
 const { isValidObjectId } = require("mongoose");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 const userRouter = Router();
 
@@ -30,8 +31,8 @@ userRouter.get("/:userId", (req, res) => {
     });
 });
 
-userRouter.get("/", (req, res) => {
-  res.render("user/personal");
+userRouter.get("/", isLoggedIn, (req, res) => {
+  res.render("user/profile");
 });
 
 module.exports = userRouter;
