@@ -5,7 +5,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 const userRouter = Router();
 
-userRouter.get("/:userId", (req, res) => {
+userRouter.get("/:userId", isLoggedIn, (req, res) => {
   // check if it is a valid ObjectId
   const isValidId = isValidObjectId(req.params.userId);
 
@@ -19,7 +19,7 @@ userRouter.get("/:userId", (req, res) => {
         return res.redirect("/");
       }
 
-      console.log("possibleUser:", possibleUser);
+      //console.log("possibleUser:", possibleUser);
       res.render("user/personal", {
         user: possibleUser,
         userId: req.params.userId,

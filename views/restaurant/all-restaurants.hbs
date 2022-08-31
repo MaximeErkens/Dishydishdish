@@ -1,31 +1,31 @@
 {{#if isOwner}}
-<h1>
+<h1 class="all-restaurants-title">
 Welcome ma human!
 </h1>
 {{else if hasOwner}}
+<div class="all-restaurants-title">
 <h1>Welcome on {{username}} favorite restaurant page</h1>
-<img src="{{profilePic}}" alt="profile-pic"/> 
+<img src="{{profilePic}}" alt="profile-pic" height="90"/> 
+</div>
 {{else}}
-<h1>Hello to general list</h1>
+<h1 class="all-restaurants-title">Hello to general list</h1>
 {{/if}}
 
 <ul>
   {{#each restaurants}}
     <li>
-      <label>
-        Name of restaurant:
-        <p>{{restaurantName}}</p>
-      </label>
-      <label>Desc: <p>{{description}}</p></label>
-      <label>City:<p>{{city}}</p></label>
-      <label>Website: <p>{{website}}</p></label>
-      
+      <label class="restaurant-label">Name of restaurant:<p class="restaurant-info">{{restaurantName}}</p></label>
+      <label class="restaurant-label">Description: <p class="restaurant-info">{{description}}</p></label>
+      <label class="restaurant-label">City:<p class="restaurant-info">{{city}}</p></label>
+      <label class="restaurant-label">Website: <p class="restaurant-info">{{website}}</p></label>
     </li>
     {{#if ../isOwner}}
+    <div class="all-restaurants-controllers">
       <form action="/restaurant/{{_id}}/delete" method="post">
         <button type="submit">Delete restaurant</button>
       </form>
       <a href="/restaurant/{{_id}}/update">Edit restaurant</a>
+      </div>
     {{/if}}
   {{/each}}
 </ul>
