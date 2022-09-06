@@ -32,9 +32,23 @@ userRouter.get("/:userId", isLoggedIn, (req, res) => {
 });
 
 userRouter.get("/", isLoggedIn, (req, res) => {
-  res.render("user/profile");
+  UserModel.findById(req.session.user._id) // get id of logged in user from session
+    .then((possibleUser) => {
+      if (!possibleUser) {
+        return res.redirect("/");
+      }
+
+      //console.log("possibleUser:", possibleUser);
+      res.render("user/personal", {
+        user: possibleUser,
+        userId: req.session.user._id,
+      });
+    })
+    .catch((err) => {
+      console.log("err:", err);
+      res.status(500).redirect("/");
+    });
+  // res.render("user/profile");
 });
 
 module.exports = userRouter;
-
-// hello world
