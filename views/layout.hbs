@@ -6,11 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <div class="nav-container">
       <nav>
+        <div>
+          <a href="/"><img
+              src="/images/logo-dishy.png"
+              alt="logo"
+              class="logo-img"
+            /></a>
+        </div>
         <ul class="nav-links">
           {{! If there is a user i want to display that you can add books }}
           {{! If there is NO user i want to display Login and Register }}

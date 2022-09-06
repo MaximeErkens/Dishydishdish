@@ -1,6 +1,6 @@
 /************** CSS VARIABLES **************/
 :root {
-  --primary-bg-color: bisque;
+  --primary-bg-color: #ef4d2d;
 }
 
 /************** RESET CSS **************/
@@ -24,15 +24,25 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Heebo", sans-serif;
+}
+
+.app-title {
+  display: flex;
+  justify-content: center;
 }
 
 .nav-container {
   background-color: var(--primary-bg-color);
 }
+
+.logo-img {
+  width: 120px;
+}
+
 nav {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -41,7 +51,10 @@ nav {
 }
 
 a:hover {
-  background-color: yellow;
+  background-color: #ccc3bb;
+  transition: 0.3s;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 nav > ul {
@@ -53,11 +66,17 @@ nav > ul {
 }
 
 .container {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0 auto;
   width: 100%;
-  background: #cddfe4;
+  background: #458699;
   padding: 1rem;
+}
+
+.login-form {
+  padding-top: 50px;
+  display: flex;
+  gap: 20px;
 }
 
 footer {
@@ -77,7 +96,8 @@ footer {
   list-style-type: none;
 }
 
-.settings-title-container, .settings-questions-links {
+.settings-title-container,
+.settings-questions-links {
   margin: 0.5rem 0rem;
 }
 
@@ -92,7 +112,8 @@ footer {
   margin: 0.5rem 0rem;
 }
 
-.all-restaurants-title, .all-restaurants-controllers {
+.all-restaurants-title,
+.all-restaurants-controllers {
   margin: 0.5rem 0rem;
 }
 
@@ -105,7 +126,8 @@ footer {
   padding-left: 0.3rem;
 }
 
-.add-restaurant-label, .create-restaurant-btn {
+.add-restaurant-label,
+.create-restaurant-btn {
   margin: 0.5rem 0rem;
 }
 
