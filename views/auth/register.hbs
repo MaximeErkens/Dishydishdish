@@ -1,47 +1,49 @@
-<h1>Register here please</h1>
+<div class="create-login-position">
+  <h1 class="register-title">Register here please</h1>
 
-<form method="post" action="/auth/register">
-  <label>Username
-    <input
-      type="text"
-      name="username"
-      placeholder="Your virtual name"
-      value="{{username}}"
-    />
-    {{#if usernameError}}
-      <div>{{usernameError}}</div>
-    {{/if}}
-  </label>
-  <br />
-  <label>Email
-    <input
-      type="text"
-      name="email"
-      placeholder="Your email"
-      value="{{email}}"
-    />
-    {{#if emailError}}
-      <div>{{emailError}}</div>
-    {{/if}}
-  </label>
-  <br />
-  <label>Password
-    <input type="password" name="password" placeholder="Your password" />
-    {{#if passwordError}}
-      <div>{{passwordError}}</div>
-    {{/if}}
-  </label>
-  <br />
-  <label>Confirm Password
-    <input
-      type="password"
-      name="confirmPassword"
-      placeholder="Your password, but again"
-    />
-  </label>
-  <br />
-  <button type="submit" class="create-login-btn">Create your account</button>
-</form>
+  <form method="post" action="/auth/register">
+    <label>Username
+      <input
+        type="text"
+        name="username"
+        placeholder="Your virtual name"
+        value="{{username}}"
+      />
+      {{#if usernameError}}
+        <div>{{usernameError}}</div>
+      {{/if}}
+    </label>
+    <br />
+    <label>Email
+      <input
+        type="text"
+        name="email"
+        placeholder="Your email"
+        value="{{email}}"
+      />
+      {{#if emailError}}
+        <div>{{emailError}}</div>
+      {{/if}}
+    </label>
+    <br />
+    <label>Password
+      <input type="password" name="password" placeholder="Your password" />
+      {{#if passwordError}}
+        <div>{{passwordError}}</div>
+      {{/if}}
+    </label>
+    <br />
+    <label>Confirm Password
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Your password, but again"
+      />
+    </label>
+    <br />
+    <button type="submit" class="create-login-btn">Create your account</button>
+  </form>
+</div>
 
 {{#if errorMessage}}
   {{errorMessage}}
