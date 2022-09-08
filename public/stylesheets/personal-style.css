@@ -20,14 +20,9 @@
 }
 
 .profile-img {
-  /* height: 430px; */
-
   height: 350px;
-  border-radius: 70%;
-  width: 320px;
-}
-
-.personal-label-container {
+  border-radius: 50%;
+  width: 350px;
 }
 
 .personal-labels {

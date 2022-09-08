@@ -89,3 +89,15 @@
   border-bottom-width: 2px;
   box-shadow: none;
 }
+
+.public-profile-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.public-profile-img {
+  height: 150px;
+  border-radius: 50%;
+  width: 150px;
+}
