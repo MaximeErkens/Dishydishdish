@@ -1,45 +1,73 @@
-<h1>Please add your favorite restaurant</h1>
+<link rel="stylesheet" href="/stylesheets/auth-style.css" />
 
-<form method="post" action="/restaurant/add">
-  <label class="add-restaurant-label" for="restaurantName">
-    Restaurant Name
-    <input type="text" id="restaurantName" name="restaurantName" placeholder="Restaurant Name" />
-  </label>
-  <br />
-  <label class="add-restaurant-label" for="description">
-    Description
-    <input
-      type="text"
-      id="description"
-      name="description"
-      placeholder="Describe Restaurant"
-    />
-  </label>
-  <br />
-  <label class="add-restaurant-label" for="city">
-    City
-    <input
-      type="text"
-      id="city"
-      name="city"
-      placeholder="City"
-    />
-  </label>
-  <br />
-  <label class="add-restaurant-label" for="website">
-    Website
-    <input
-      type="text"
-      id="website"
-      name="website"
-      placeholder="Website"
-    />
-  </label>
-  <br />
-  <button class="create-restaurant-btn" type="submit">Create your restaurant</button>
-</form>
+<div class="create-login-position">
 
-{{#if createdRestaurant}}
-  <h4>Thank you for creating
-    <a href="/restaurant/{{createdRestaurant._id}}">{{createdRestaurant.title}}</a></h4>
-{{/if}}
+  <h1 class="register-title">Please add your favorite restaurant:</h1>
+
+  <form method="post" action="/restaurant/add">
+    <label
+      class="add-restaurant-label"
+      for="restaurantName"
+      class="form-labels"
+    >
+      Restaurant Name:
+      <input
+        type="text"
+        id="restaurantName"
+        name="restaurantName"
+        placeholder="Restaurant Name"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <label class="add-restaurant-label" for="description" class="form-labels">
+      Description:
+      <input
+        type="text"
+        id="description"
+        name="description"
+        placeholder="Describe Restaurant"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <label class="add-restaurant-label" for="city" class="form-labels">
+      City:
+      <input
+        type="text"
+        id="city"
+        name="city"
+        placeholder="City"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <label class="add-restaurant-label" for="website" class="form-labels">
+      Website:
+      <input
+        type="text"
+        id="website"
+        name="website"
+        placeholder="Website"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <div class="btn-container">
+      <button class="create-login-btn" type="submit">Create your restaurant
+
+      </button>
+    </div>
+  </form>
+
+  {{#if createdRestaurant}}
+    <h4>Thank you for adding a restaurant.
+
+      <a
+        href="/restaurant/{{createdRestaurant._id}}"
+      >{{createdRestaurant.title}}</a>
+
+    </h4>
+  {{/if}}
+
+</div>
