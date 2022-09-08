@@ -1,0 +1,20 @@
+/*RESTAURANTS STYLING */
+
+.all-restaurants-title,
+.all-restaurants-controllers {
+  margin: 0.5rem 0rem;
+}
+
+.restaurant-label {
+  display: flex;
+}
+
+.restaurant-info {
+  font-weight: bold;
+  padding-left: 0.3rem;
+}
+
+.add-restaurant-label,
+.create-restaurant-btn {
+  margin: 0.5rem 0rem;
+}

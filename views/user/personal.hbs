@@ -1,22 +1,55 @@
+<link rel="stylesheet" href="/stylesheets/personal-style.css" />
+
 <div class="personal-page-container">
 
-<div class="personal-page-element">
-<h1>Hello from the personal page of {{user.username}}</h1>
+  <h1 class="profile-title">Profile of: {{user.username}}</h1>
+
+  <img src={{user.profilePic}} alt="profile-pic" class="profile-img" />
+
+  <label class="personal-labels">Your email:
+    {{user.email}}. Nice to see you today!</label>
+
+  <label class="personal-labels">
+    In case you do not know, your id is:
+    {{userId}}
+  </label>
 </div>
 
-<div class="personal-page-element">
-  Your email is
-  {{user.email}}. Nice to see you today
-</div>
+{{!-- First version}}
+  {{!-- <h1>Hello from the personal page of {{user.username}}</h1>
+  <label>
+ Your Profile pic:
+  </label>
+  <img src={{user.profilePic}} alt="profile-pic" class="profile-img" />
 
-<div class="personal-page-element">
-  Your Profile pic:
-  <img src={{user.profilePic}} alt="profile-pic" height="90"/>
-</div>
+    <label>Your email is:</label>
+    {{user.email}}. Nice to see you today!
 
-<div class="personal-page-element">
-  In case you do not know, your id is
-  {{userId}}
-</div>
+    <label>
+      In case you do not know, your id is:
+    </label>
+    {{userId}} --}}
 
-</div>
+{{!-- Original version}}
+{{!-- <div class="personal-page-container">
+
+  <div class="personal-page-element">
+    <h1>Hello from the personal page of {{user.username}}</h1>
+  </div>
+
+  <div class="personal-page-element">
+    Your email is
+    {{user.email}}. Nice to see you today
+  </div>
+
+  <div class="personal-page-element">
+    Your Profile pic:
+    <img src={{user.profilePic}} alt="profile-pic" height="90" />
+  </div>
+
+  <div class="personal-page-element">
+    In case you do not know, your id is
+    {{userId}}
+  </div>
+
+</div> --}}

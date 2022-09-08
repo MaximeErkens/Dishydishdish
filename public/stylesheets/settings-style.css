@@ -1,0 +1,16 @@
+/* SETTINGS STYLING */
+.settings-outercontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.settings-questions {
+  list-style-type: none;
+}
+
+.settings-title-container,
+.settings-questions-links {
+  margin: 0.5rem 0rem;
+}

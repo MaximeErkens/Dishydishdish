@@ -1,47 +1,60 @@
+<link rel="stylesheet" href="/stylesheets/auth-style.css" />
+
 <div class="create-login-position">
   <h1 class="register-title">Register here please</h1>
 
   <form method="post" action="/auth/register">
-    <label>Username
+    <label class="form-labels">Username:
       <input
         type="text"
         name="username"
         placeholder="Your virtual name"
         value="{{username}}"
+        class="input-fields"
       />
       {{#if usernameError}}
         <div>{{usernameError}}</div>
       {{/if}}
     </label>
     <br />
-    <label>Email
+    <label class="form-labels">Email:
       <input
         type="text"
         name="email"
         placeholder="Your email"
         value="{{email}}"
+        class="input-fields"
       />
       {{#if emailError}}
         <div>{{emailError}}</div>
       {{/if}}
     </label>
     <br />
-    <label>Password
-      <input type="password" name="password" placeholder="Your password" />
+    <label class="form-labels">Password:
+      <input
+        type="password"
+        name="password"
+        placeholder="Your password"
+        class="input-fields"
+      />
       {{#if passwordError}}
         <div>{{passwordError}}</div>
       {{/if}}
     </label>
     <br />
-    <label>Confirm Password
+    <label class="form-labels">Confirm Password:
       <input
         type="password"
         name="confirmPassword"
         placeholder="Your password, but again"
+        class="input-fields"
       />
     </label>
     <br />
-    <button type="submit" class="create-login-btn">Create your account</button>
+    <div class="btn-container">
+      <button type="submit" class="create-login-btn">Create your account</button>
+    </div>
+    {{! <button type="submit" class="create-login-btn">Create your account</button> }}
   </form>
 </div>
 

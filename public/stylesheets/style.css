@@ -33,6 +33,7 @@ body {
   justify-content: center;
 }
 
+/* NAV STYLING */
 .nav-container {
   background-color: var(--primary-bg-color);
 }
@@ -65,6 +66,7 @@ nav > ul {
   gap: 1rem;
 }
 
+/* BACKGROUND STYLING */
 .container {
   /* max-width: 1000px; */
   margin: 0 auto;
@@ -73,32 +75,45 @@ nav > ul {
   padding: 1rem;
 }
 
-.create-login-position {
+/* LOGIN AND REGISTER STYLING */
+/* .create-login-position {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.register-title {
+/* .form-labels {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+} */
+
+/* .input-fields {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 12px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 50px;
+} */
+
+/* .register-title {
   padding-bottom: 20px;
-}
+} */
 
-.login-form {
+/* .login-form {
   padding-top: 50px;
   display: flex;
   gap: 20px;
-}
+} */
 
-.create-login-btn {
-  /* position: absolute; */
-  top: 50%;
-  margin: 20px;
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
+/* .btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+} */
 
-  display: inline-block;
-  /* padding: 15px; */
-  margin-right: 5px;
+/* .create-login-btn {
   height: 50px;
   min-width: 200px;
   background: var(--primary-bg-color);
@@ -112,20 +127,23 @@ nav > ul {
   box-shadow: 0 5px 0px darken (var(--primary-bg-color), 0%);
   border-bottom: 2px solid darken (var(--primary-bg-color), 3%);
   border-radius: 10px;
-}
-.create-login-btn:hover {
+} */
+
+/* .create-login-btn:hover {
   background: darken(#ef4d2d, 5%);
   box-shadow: 0 4px 1px darken(var(--primary-bg-color), 5%);
   border-bottom: 2px solid darken(var(--primary-bg-color), 8%);
   transition: all 0.1s ease-in;
   color: #ccc3bb;
-}
+} */
 
-.create-login-btn:active {
+/* .create-login-btn:active {
   transform: translateY(4px);
   border-bottom-width: 2px;
   box-shadow: none;
-}
+} */
+
+/* FOOTER STYLING */
 
 footer {
   text-align: center;
@@ -133,51 +151,55 @@ footer {
   padding: 1rem;
 }
 
-.settings-outercontainer {
+/* SETTINGS STYLING */
+/* .settings-outercontainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-}
+} */
 
-.settings-questions {
+/* .settings-questions {
   list-style-type: none;
-}
+} */
 
-.settings-title-container,
+/* .settings-title-container,
 .settings-questions-links {
   margin: 0.5rem 0rem;
-}
+} */
 
-.personal-page-container {
+/* PERSONAL PAGE STYLING */
+/* .personal-page-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-}
+} */
 
-.personal-page-element {
+/* .personal-page-element {
   margin: 0.5rem 0rem;
-}
+} */
 
-.all-restaurants-title,
+/*RESTAURANTS STYLING */
+
+/* .all-restaurants-title,
 .all-restaurants-controllers {
   margin: 0.5rem 0rem;
-}
+} */
 
-.restaurant-label {
+/* .restaurant-label {
   display: flex;
-}
+} */
 
-.restaurant-info {
+/* .restaurant-info {
   font-weight: bold;
   padding-left: 0.3rem;
-}
+} */
 
-.add-restaurant-label,
+/* .add-restaurant-label,
 .create-restaurant-btn {
   margin: 0.5rem 0rem;
-}
+} */
 
 /************** TYPOGRAPHY **************/
 .title {
