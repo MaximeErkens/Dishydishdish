@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="/stylesheets/restaurant-style.css" />
 
 
+
 {{#if isOwner}}
+<div class="all-restaurant-container">
 <h1 class="all-restaurants-title">
 Welcome ma human!
 </h1>
@@ -14,7 +16,7 @@ Welcome ma human!
 <h1 class="all-restaurants-title">Hello to general list</h1>
 {{/if}}
 
-<ul>
+<ul class="list-all-restaurant">
   {{#each restaurants}}
     <li>
       <label class="restaurant-label">Name of restaurant:<p class="restaurant-info">{{restaurantName}}</p></label>
@@ -25,10 +27,14 @@ Welcome ma human!
     {{#if ../isOwner}}
     <div class="all-restaurants-controllers">
       <form action="/restaurant/{{_id}}/delete" method="post">
-        <button type="submit">Delete restaurant</button>
+        <button type="submit" class="delete-restaurant-btn">Delete restaurant</button>
       </form>
-      <a href="/restaurant/{{_id}}/update">Edit restaurant</a>
+      <button class="edit-restaurant-btn">
+              <a href="/restaurant/{{_id}}/update" >Edit restaurant</a>
+      </button>
+      {{!-- <a href="/restaurant/{{_id}}/update" class="edit-restaurant-btn">Edit restaurant</a> --}}
       </div>
     {{/if}}
   {{/each}}
 </ul>
+</div>
