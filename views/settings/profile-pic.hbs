@@ -1,14 +1,24 @@
-<form
-  method="post"
-  action="/settings/profile-pic"
-  enctype="multipart/form-data"
->
-  <input type="file" name="image" />
+<link rel="stylesheet" href="/stylesheets/auth-style.css" />
+<link rel="stylesheet" href="/stylesheets/settings-style.css" />
 
-  <button type="submit">Submit Yo Image</button>
-</form>
-<div>
-  {{#if img}}
-    <img src="{{img}}" />
-  {{/if}}
+<div class="create-login-position">
+  <h1 class="register-title">Update Profile Photo:</h1>
+  <form
+    method="post"
+    action="/settings/profile-pic"
+    enctype="multipart/form-data"
+  >
+    <input type="file" name="image" class="update-profile-photo-input" />
+    <div class="btn-container"><button
+        type="submit"
+        class="create-login-btn"
+      >Submit Photo</button></div>
+  </form>
+
+  <div>
+    {{#if img}}
+      <img src="{{img}}" />
+    {{/if}}
+  </div>
+
 </div>

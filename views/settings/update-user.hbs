@@ -1,39 +1,47 @@
-<h2>Update user</h2>
+<link rel="stylesheet" href="/stylesheets/auth-style.css" />
 
-{{! update username, update email }}
-<form method="post" action="/settings/update-user">
-  <label>Username
-    <input
-      type="text"
-      name="username"
-      placeholder="Username"
-      value="{{user.username}}"
-    />
-  </label>
-  <br />
+<div class="create-login-position">
 
-  <label>Email
-    <input
-      type="text"
-      name="email"
-      placeholder="Email"
-      value="{{user.email}}"
-    />
-  </label>
-  <br />
+  <h2 class="register-title">Update user:</h2>
 
-  <button type="submit">Change settings</button>
+  {{! update username, update email }}
+  <form method="post" action="/settings/update-user">
+    <label class="form-labels">Username:
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        value="{{user.username}}"
+        class="input-fields"
+      />
+    </label>
+    <br />
 
-</form>
+    <label class="form-labels">Email:
+      <input
+        type="text"
+        name="email"
+        placeholder="Email"
+        value="{{user.email}}"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <div class="btn-container">
+      <button type="submit" class="create-login-btn">Change settings</button>
+    </div>
+  </form>
 
-{{#if emailError}}
-  emailError
-{{/if}}
+  {{#if emailError}}
+    emailError
+  {{/if}}
 
-{{#if usernameError}}
-  usernameError
-{{/if}}
+  {{#if usernameError}}
+    usernameError
+  {{/if}}
 
-{{#if errorMessage}}
-  errorMessage
-{{/if}}
+  {{#if errorMessage}}
+    errorMessage
+  {{/if}}
+
+</div>
