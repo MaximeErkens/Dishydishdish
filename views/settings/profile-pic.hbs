@@ -8,7 +8,13 @@
     action="/settings/profile-pic"
     enctype="multipart/form-data"
   >
-    <input type="file" name="image" class="update-profile-photo-input" />
+
+    <label for="file-upload" class="update-profile-photo-input">
+      Upload profile image:
+    </label>
+
+    <input id="file-upload" type="file" name="image" />
+
     <div class="btn-container"><button
         type="submit"
         class="create-login-btn"

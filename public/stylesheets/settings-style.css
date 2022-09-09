@@ -18,32 +18,53 @@
   height: 650px;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 .update-profile-photo-input {
-  height: 50px;
+  height: 35px;
   min-width: 220px;
-  background: var(--primary-bg-color);
+  background: #ccc3bb;
   border: none;
   outline: none;
   color: black;
   font-family: inherit;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: 3px;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 50%);
   border-bottom: 2px solid darken (var(--primary-bg-color), 3%);
   border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
-
 .update-profile-photo-input:hover {
   background: darken(#ef4d2d, 5%);
   box-shadow: 0 4px 1px darken(var(--primary-bg-color), 5%);
   border-bottom: 2px solid darken(var(--primary-bg-color), 8%);
   transition: all 0.1s ease-in;
-  color: #ccc3bb;
+  color: black;
 }
 
 .update-profile-photo-input:active {
   transform: translateY(4px);
   border-bottom-width: 2px;
   box-shadow: none;
+}
+
+.succes-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.succes-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.succes-img {
+  height: 650px;
 }

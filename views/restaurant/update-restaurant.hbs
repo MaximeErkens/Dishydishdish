@@ -1,51 +1,60 @@
-<h2>Update restaurant</h2>
+<link rel="stylesheet" href="/stylesheets/auth-style.css" />
 
-<form method="post" action="/restaurant/{{restaurant._id}}/update">
- <label for="restaurantName">
-    Restaurant Name
-    <input 
-    type="text" 
-    id="restaurantName" 
-    name="restaurantName" 
-    placeholder="Restaurant Name" 
-    value="{{restaurant.restaurantName}}"
-    />
-  </label>
-  <br />
-  <label for="description">
-    Description
-    <input
-      type="text"
-      id="description"
-      name="description"
-      placeholder="Describe Restaurant"
-      value="{{restaurant.description}}"
-    />
-  </label>
-  <br />
-  <label for="city">
-    City
-    <input
-      type="text"
-      id="city"
-      name="city"
-      placeholder="City"
-      value="{{restaurant.city}}"
-    />
-  </label>
-  <br />
-  <label for="website">
-    Website
-    <input
-      type="text"
-      id="website"
-      name="website"
-      placeholder="Website"
-      value="{{restaurant.website}}"
-    />
-  </label>
-  <br />
+<div class="create-login-position">
+  <h2 class="register-title">Update restaurant:</h2>
 
-  <button type="submit">Update restaurant details</button>
+  <form method="post" action="/restaurant/{{restaurant._id}}/update">
+    <label for="restaurantName" class="form-labels">
+      Restaurant Name:
+      <input
+        type="text"
+        id="restaurantName"
+        name="restaurantName"
+        placeholder="Restaurant Name"
+        value="{{restaurant.restaurantName}}"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <label for="description" class="form-labels">
+      Description:
+      <input
+        type="text"
+        id="description"
+        name="description"
+        placeholder="Describe Restaurant"
+        value="{{restaurant.description}}"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <label for="city" class="form-labels">
+      City:
+      <input
+        type="text"
+        id="city"
+        name="city"
+        placeholder="City"
+        value="{{restaurant.city}}"
+        class="input-fields"
+      />
+    </label>
+    <br />
+    <label for="website" class="form-labels">
+      Website:
+      <input
+        type="text"
+        id="website"
+        name="website"
+        placeholder="Website"
+        value="{{restaurant.website}}"
+        class="input-fields"
+      />
+    </label>
+    <br />
 
-</form>
+    <div class="btn-container">
+      <button type="submit" class="create-login-btn">Update details</button>
+    </div>
+  </form>
+</div>
